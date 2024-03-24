@@ -37,7 +37,9 @@ export default function Home() {
         return filteredText;
       };
 
-      const response = await fetch(`http://localhost:5000/${inputText}`);
+      // const response = await fetch(`http://localhost:5000/${inputText}`);
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL; // Accessing the environment variable
+      const response = await fetch(`${apiUrl}/${inputText}`);
       if (!response.ok) {
         throw new Error("Failed to fetch response from the bot");
       }
